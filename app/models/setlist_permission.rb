@@ -1,0 +1,2 @@
+class SetlistPermission < ApplicationRecord
+end
