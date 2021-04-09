@@ -4,6 +4,7 @@ class CreateLines < ActiveRecord::Migration[6.1]
       t.text :lyrics
       t.string :chords
       t.integer :line_order
+      t.references :song
 
       t.timestamps
     end
