@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   end
           
   def create
-    @song = current_user.songs.build(song_params)
+    @song = Song.new(song_params)
     if @song.save
       redirect_to songs_path
     else
@@ -13,6 +13,10 @@ class SongsController < ApplicationController
     end
   end
     
+  def index
+    @songs = current_user.songs
+  end
+
   private
     
   def song_params
