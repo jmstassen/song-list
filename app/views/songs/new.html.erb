@@ -1,0 +1,23 @@
+<h1>New Song</h1>
+
+<%= form_for(@setlist) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  
+  <%= f.label :songwriter %>
+  <%= f.text_field :songwriter %><br>
+  
+  <%= f.label :tempo %>
+  <%= f.text_field :tempo %><br>
+  
+  <%= f.label :key %>
+  <%= f.text_field :key %><br>
+
+  <%= f.label :note %>
+  <%= f.text_area :note %><br>
+
+  <%= f.label :link %>
+  <%= f.text_field :link %><br>
+  
+  <%= f.submit "Create" %>
+<% end %>
