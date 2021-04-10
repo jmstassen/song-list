@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      setlist = Setlist.new(:title => "All My Songs")
+      @user.setlists << setlist
       session[:user_id] = @user.id
       redirect_to @user
     else
