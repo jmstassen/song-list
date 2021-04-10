@@ -5,7 +5,12 @@ class SetlistsController < ApplicationController
   end
       
   def create
-    binding.pry
+    @setlist = current_user.setlists.build(setlist_params)
+    if @setlist.save
+      redirect_to setlists_path
+    else
+      render :new
+    end
   end
 
   private
