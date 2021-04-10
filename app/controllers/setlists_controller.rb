@@ -13,6 +13,11 @@ class SetlistsController < ApplicationController
     end
   end
 
+  def index
+    @setlists = current_user.setlists
+    binding.pry
+  end
+
   private
 
   def setlist_params
