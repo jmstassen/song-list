@@ -5,8 +5,9 @@ class SetlistsController < ApplicationController
   end
       
   def create
-    @setlist = current_user.setlists.build(setlist_params)
-    if @setlist.save
+    setlist = Setlist.new(setlist_params)
+    if setlist.save
+      SetlistPermission.create(:user_id => current_user.id, :setlist_id => setlist.id, :permission => 0)
       redirect_to setlists_path
     else
       render :new
@@ -15,7 +16,6 @@ class SetlistsController < ApplicationController
 
   def index
     @setlists = current_user.setlists
-    binding.pry
   end
 
   private
