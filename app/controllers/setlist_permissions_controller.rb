@@ -1,0 +1,2 @@
+class SetlistPermissionsController < ApplicationController
+end
