@@ -14,6 +14,8 @@
 
     <div>
       <% if logged_in? %>
+        <%= link_to "Create new setlist", new_setlist_path %> | 
+        <%= link_to "All my setlists", setlists_path %> | 
         <%= link_to "Log out", logout_path, method: :delete %>
       <% else %>     
         <%= link_to "Sign up", signup_path %> |
