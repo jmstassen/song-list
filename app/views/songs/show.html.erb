@@ -24,7 +24,7 @@
     <br>
     <br>
     <%= f.fields_for :lines do |l| %>
-        <%= l.text_field :lyrics %> | <%= l.text_field :chords %><br>
+        <%= l.text_field :lyrics %> | <%= l.text_field :chords %> | <%= l.number_field :line_order %><br>
     <% end %>
 
     <%= f.submit "Create" %>
