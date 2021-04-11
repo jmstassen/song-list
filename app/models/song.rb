@@ -4,4 +4,7 @@ class Song < ApplicationRecord
   has_many :user_notes
   has_many :setlists, through: :song_selections
   accepts_nested_attributes_for :lines
+
+  scope :alpha, -> { order(:title) }
+
 end
