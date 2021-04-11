@@ -24,6 +24,11 @@
       <% end %>
     </div>
 
+    <div>
+      <% if flash[:message] %>
+        <%= flash[:message] %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
