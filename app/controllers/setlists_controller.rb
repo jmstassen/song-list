@@ -18,6 +18,11 @@ class SetlistsController < ApplicationController
     @setlists = Setlist.all
   end
 
+  def show
+    @setlist = Setlist.find_by_id(params[:id])
+    redirect_to '/' if !@setlist
+  end
+
   private
 
   def setlist_params
