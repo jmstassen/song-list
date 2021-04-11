@@ -2,17 +2,11 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
-    @song.lines.build(line_order: 1)
-    @song.lines.build(line_order: 2)
-    @song.lines.build(line_order: 3)
-    @song.lines.build(line_order: 4)
-    @song.lines.build(line_order: 5)
-    @song.lines.build(line_order: 6)
-    @song.lines.build(line_order: 7)
-    @song.lines.build(line_order: 8)
-    @song.lines.build(line_order: 9)
-    @song.lines.build(line_order: 10)
-    @song.lines.build(line_order: 11)
+    n = 1
+    20.times do
+      @song.lines.build(:line_order => n)
+      n += 1
+    end
   end
           
   def create
