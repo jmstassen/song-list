@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :setlists do
-    resources :songs, only: [:new, :create, :index, :show]
+    resources :songs, only: [:new, :create, :index]
   end
 
   resources :songs
