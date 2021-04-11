@@ -10,8 +10,18 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
 
-  resources :users
-  resources :setlists
+  resources :users do
+    resources :setlists, only: [:new, :create, :index]
+    resources :songs, only: [:new, :create, :index]
+  end
+
+  resources :setlists do
+    resources :songs, only: [:new, :create, :index, :show]
+  end
+
   resources :songs
+
+  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
