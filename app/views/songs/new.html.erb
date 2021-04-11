@@ -25,5 +25,11 @@
   <%= f.text_field :link %>
   <br>
   <br>
+  <%= f.fields_for :lines do |l| %>
+    <%= l.text_field :lyrics %> | <%= l.text_field :chords %><br>
+  <% end %>
+  
+  <br>
+  <br>
   <%= f.submit "Create" %>
 <% end %>
