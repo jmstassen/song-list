@@ -1,0 +1,7 @@
+<h1>All Setlist Permissions</h1>
+<p> User ID | Setlist ID | Permission </p>
+
+  <% @setlist_permissions.each do |s| %>
+    <%= s.user_id %> | <%= s.setlist_id %> | <%= s.permission %>
+    <br>
+  <% end %>
