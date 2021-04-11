@@ -14,7 +14,13 @@ class SongsController < ApplicationController
   end
     
   def index
+    if params[:setlist_id] && @setlist = Setlist.find_by_id(params[:setlist_id])
+      @songs = @setlist.songs
+    elsif params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @songs = @user.songs
+    else
     @songs = current_user.songs
+    end
   end
 
   private
