@@ -15,7 +15,7 @@ class SetlistsController < ApplicationController
   end
 
   def index
-    @setlists = current_user.setlists
+    @setlists = Setlist.all
   end
 
   private
