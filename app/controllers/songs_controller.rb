@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     elsif params[:user_id] && @user = User.find_by_id(params[:user_id])
       @songs = @user.songs
     else
-    @songs = current_user.songs
+      @songs = current_user.songs
     end
   end
 
