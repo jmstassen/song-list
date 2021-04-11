@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      setlist = Setlist.new(:title => "My Songs")
-      @user.setlists << setlist
+      setlist = Setlist.create(:title => "My Songs")
+      SetlistPermission.create(:user_id => @user.id, :setlist_id => setlist.id, :permission => 11)
       session[:user_id] = @user.id
       redirect_to @user
     else
