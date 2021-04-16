@@ -1,20 +1,10 @@
-<%= form_for(@setlist) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br>
-    <br>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <br>
-    <br>
-    <%= f.label :date %>
-    <%= f.date_field :date %>
-    <br>
-    <br>
-    <%= f.submit "Create" %>
-  <% end %>
+<h1><%= @setlist.title %></h1>
+<h2><%= @setlist.location %></h2>
+<h2><%= @setlist.date %></h2>
 
   <% @setlist.songs.each do |s| %>
-    <%= link_to s.title, setlist_path(s) %> | <%= s.id %>
+    <%= link_to s.title, song_path(s) %> | <%= s.id %>
     <br>
   <% end %>
+
+  <%= link_to "Create new song", new_setlist_song_path(@setlist.id) %>
