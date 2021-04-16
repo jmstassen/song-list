@@ -47,7 +47,7 @@ class SongsController < ApplicationController
       lines_attributes: [
         :lyrics,
         :chords,
-        :line_order
+        :line_number
       ]
     )
   end
