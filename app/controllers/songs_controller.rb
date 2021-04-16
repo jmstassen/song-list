@@ -11,8 +11,8 @@ class SongsController < ApplicationController
           
   def create
     @song = Song.new(song_params)
+    @song.user_id = current_user.id
     if @song.save
-      SongSelection.create(:song_id => @song.id, :setlist_id => current_user.setlists.find_by(:title => "My Songs").id)
       redirect_to song_path(@song)
     else
       render :new
