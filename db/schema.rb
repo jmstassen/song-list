@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_225322) do
+ActiveRecord::Schema.define(version: 2021_04_09_225239) do
 
   create_table "lines", force: :cascade do |t|
     t.text "lyrics"
     t.string "chords"
-    t.integer "line_order"
+    t.integer "line_number"
     t.integer "song_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_225322) do
   end
 
   create_table "song_selections", force: :cascade do |t|
-    t.integer "song_order"
+    t.integer "song_number"
     t.integer "song_id"
     t.integer "setlist_id"
     t.datetime "created_at", precision: 6, null: false
@@ -57,18 +57,11 @@ ActiveRecord::Schema.define(version: 2021_04_09_225322) do
     t.string "key"
     t.text "note"
     t.string "link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_notes", force: :cascade do |t|
-    t.text "content"
+    t.boolean "public"
     t.integer "user_id"
-    t.integer "song_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["song_id"], name: "index_user_notes_on_song_id"
-    t.index ["user_id"], name: "index_user_notes_on_user_id"
+    t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,4 +73,9 @@ ActiveRecord::Schema.define(version: 2021_04_09_225322) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "setlist_permissions", "setlists"
+  add_foreign_key "setlist_permissions", "users"
+  add_foreign_key "song_selections", "setlists"
+  add_foreign_key "song_selections", "songs"
+  add_foreign_key "songs", "users"
 end
