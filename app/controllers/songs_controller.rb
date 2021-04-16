@@ -4,7 +4,7 @@ class SongsController < ApplicationController
     @song = Song.new
     n = 1
     20.times do
-      @song.lines.build(:line_order => n)
+      @song.lines.build(:line_number => n)
       n += 1
     end
   end
