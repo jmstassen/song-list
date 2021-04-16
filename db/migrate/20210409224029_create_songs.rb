@@ -7,6 +7,7 @@ class CreateSongs < ActiveRecord::Migration[6.1]
       t.string :key
       t.text :note
       t.string :link
+      t.boolean :public
       t.references :user, foreign_key: true
 
       t.timestamps
