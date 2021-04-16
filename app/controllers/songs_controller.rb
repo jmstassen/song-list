@@ -1,7 +1,12 @@
 class SongsController < ApplicationController
 
   def new
-    @song = Song.new
+    if params[:setlist_id]
+      @setlist = Setlist.find_by_id(params[:setlist_id])
+      @song = @setlist.songs.build
+    else  
+      @song = Song.new
+    end
     n = 1
     20.times do
       @song.lines.build(:line_number => n)
