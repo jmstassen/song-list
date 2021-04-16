@@ -2,7 +2,7 @@
 <h2><%= @setlist.location %></h2>
 <h2><%= @setlist.date %></h2>
 
-  <% @setlist.songs.each do |s| %>
+<% @setlist.songs.each do |s| %>
     <%= link_to s.title, song_path(s) %> | <%= s.id %>
     <br>
   <% end %>
