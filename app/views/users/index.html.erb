@@ -1,6 +1,6 @@
 <h1>All Users<h2>
 
   <% @users.each do |u| %>
-    <%= link_to u.username, user_path(u) %> | <%= u.id %>
+    <%= link_to u.display_name, user_path(u) %> | <%= u.id %>
     <br>
   <% end %>
