@@ -53,3 +53,20 @@ User_Note - created
   belongs to :user
   belongs to :song
   content
+
+
+Thinking through stories
+
+User create
+  Setlist create: My Songs
+    SetlistPermission.create (permission: 11)
+
+Setlist create
+  SetlistPermission.create (permission: 0)
+
+Song create
+  SongSelection.create (setlist: My Songs, song_order: songs.count + 1)
+
+Add song to setlist
+  SongSelection.create (song_order: songs.count + 1)
+  
