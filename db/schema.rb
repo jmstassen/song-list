@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 2021_04_09_225239) do
     t.string "title"
     t.string "location"
     t.date "date"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_setlists_on_user_id"
   end
 
   create_table "song_selections", force: :cascade do |t|
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_225239) do
 
   add_foreign_key "setlist_permissions", "setlists"
   add_foreign_key "setlist_permissions", "users"
+  add_foreign_key "setlists", "users"
   add_foreign_key "song_selections", "setlists"
   add_foreign_key "song_selections", "songs"
   add_foreign_key "songs", "users"
