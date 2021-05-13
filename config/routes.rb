@@ -13,17 +13,12 @@ Rails.application.routes.draw do
   get "/auth/google_oauth2/callback" => 'sessions#google'
 
   resources :users do
-    resources :setlists, only: [:new, :create, :index]
     resources :songs, only: [:new, :create, :index]
   end
-
+  
   resources :setlists do
     resources :songs, only: [:new, :create, :index]
   end
-
-  resources :songs
-  resources :setlist_permissions
   
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
