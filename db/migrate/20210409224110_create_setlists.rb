@@ -4,7 +4,6 @@ class CreateSetlists < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :location
       t.date :date
-      t.references :user, foreign_key: true
 
       t.timestamps
     end

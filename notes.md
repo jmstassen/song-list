@@ -1,24 +1,22 @@
 Setlist App
 
-Setlist - created
+Setlist
   has_many :song_selections
   has_many :setlist_permissions
   has_many :songs, through: :song_selections
-  has_many :users, through: :setlist_permissions
   date
   location
   title
 
-Song_Selections - created
+Song_Selections
   belongs_to :song
   belongs_to :setlist
   song_order numeric (not integer)
 
-Song - created
+Song
   has_many :lines
   has_many :song_selections
-  has_many :user_notes
-  has_many :setlists, through: :song_selections
+  belongs_to :user
   title
   songwriter
   tempo
@@ -26,47 +24,43 @@ Song - created
   note
   link
 
-Line - created
+Line
   belongs_to :song
   lyrics
   chords
   references :song
   line_order
 
-User - created
-  has_many :user_notes
+User
   has_many :setlist_permissions
   has_many :setlists, through: :setlist_permissions
-  has_many :songs, through: :setlists
+  has_many :songs
   has_secure_password
   display_name
   username
   email
   password_digest
 
-Setlist_Permissions - created
+Setlist_Permissions
   belongs_to :user
   belongs_to :setlist
   permission
 
-User_Note - created
-  belongs to :user
-  belongs to :song
-  content
 
 
 Thinking through stories
 
-User create
-  Setlist create: My Songs
-    SetlistPermission.create (permission: 11)
+User create, 
 
 Setlist create
-  SetlistPermission.create (permission: 0)
 
-Song create
-  SongSelection.create (setlist: My Songs, song_order: songs.count + 1)
+Song create, view, edit, index(my songs, all songs)
 
 Add song to setlist
   SongSelection.create (song_order: songs.count + 1)
+  SetlistPermission.create
   
+View all of a user's songs
+View all of a user's setlists
+View a setlist
+View a song

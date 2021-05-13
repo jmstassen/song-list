@@ -4,7 +4,7 @@ class CreateLines < ActiveRecord::Migration[6.1]
       t.text :lyrics
       t.string :chords
       t.integer :line_number
-      t.references :song
+      t.references :song, foreign_key: true
 
       t.timestamps
     end
