@@ -1,5 +1,7 @@
 <h1>Welcome <%= @user.display_name %></h1>
 
+<p>User show</p>
+
 <% @setlists.each do |s| %>
     <%= link_to s.title, setlist_path(s) %> | <%= s.id %>
     <br>
