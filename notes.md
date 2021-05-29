@@ -48,19 +48,10 @@ Setlist_Permissions
 
 
 
-Thinking through stories
+Basic User Stories
 
-User create, 
-
-Setlist create
-
-Song create, view, edit, index(my songs, all songs)
-
-Add song to setlist
-  SongSelection.create (song_order: songs.count + 1)
-  SetlistPermission.create
-  
-View all of a user's songs
-View all of a user's setlists
-View a setlist
-View a song
+1. User create, edit, index
+2. Session create, delete
+3. Song create, view, edit, index
+4. Setlist create, view (performance), edit, index
+5. User view (User song index, User setlist index)
