@@ -51,17 +51,17 @@ Setlist_Permissions
 Basic User Stories
 
 1. User 
-    [ ] create, 
+    [X] create, 
     [ ] edit, 
-    [ ] index
+    [X] index
 2. Session 
-    [ ] create,
-    [ ] delete
+    [X] create,
+    [X] delete
 3. Song 
-    [ ] create, 
-    [ ] view, 
+    [X] create, 
+    [X] view, 
     [ ] edit,
-    [ ] index
+    [X] index
 4. Setlist 
     [ ] create, 
     [ ] view (performance),
