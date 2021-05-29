@@ -7,11 +7,12 @@ class SetlistsController < ApplicationController
   def create
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
     setlist = User.setlist.build(setlist_params)
-    if setlist.save
-      SetlistPermission.create(:user_id => current_user.id, :setlist_id => setlist.id, :permission => 0)
-      redirect_to setlists_path
-    else
-      render :new
+      if setlist.save
+        SetlistPermission.create(:user_id => current_user.id, :setlist_id => setlist.id, :permission => 0)
+        redirect_to setlists_path
+      else
+        render :new
+      end
     end
   end
 
