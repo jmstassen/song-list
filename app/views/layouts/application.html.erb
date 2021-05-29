@@ -14,10 +14,8 @@
 
     <div>
       <% if logged_in? %>
-        <%= link_to "Create new setlist", setlist_path(current_user) %> | 
-        <%= link_to "Create new song", new_user_song_path(current_user) %> | 
-        <%= link_to "All my setlists", user_path(current_user) %> | 
-        <%= link_to "All my songs", user_songs_path(current_user) %> | 
+        <%= link_to "Create new setlist", new_setlist_path %> | 
+        <%= link_to "Create new song", new_song_path %> |
         <%= link_to "Log out", logout_path, method: :delete %>
       <% else %>     
         <%= link_to "Sign up", signup_path %> |
