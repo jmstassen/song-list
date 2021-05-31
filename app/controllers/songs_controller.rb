@@ -3,10 +3,8 @@ class SongsController < ApplicationController
   def new
     if params[:setlist_id]
       @setlist = Setlist.find_by_id(params[:setlist_id])
-      @song = @setlist.songs.build
-    else  
-      @song = Song.new
     end
+    @song = Song.new
     n = 1
     20.times do
       @song.lines.build(:line_number => n)
@@ -18,6 +16,10 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     @song.user_id = current_user.id
     if @song.save
+      if params[:setlist_id] && @setlist = Setlist.find_by_id(params[:setlist_id])
+        song_number = @setlist.songs.count + 1
+        SongSelection.create(:song_id => @song.id, :setlist_id => @setlist.id, :song_number => song_number)
+      end
       redirect_to song_path(@song)
     else
       render :new
