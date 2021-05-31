@@ -50,19 +50,19 @@ Setlist_Permissions
 
 Basic User Stories
 
-1. User 
+1. User (validates email, username (no spaces), display name, password)
     [X] create, 
     [ ] edit, 
     [X] index
 2. Session 
     [X] create,
     [X] delete
-3. Song 
+3. Song (validates title)
     [X] create, 
     [X] view, 
     [ ] edit,
     [X] index
-4. Setlist 
+4. Setlist (validates title)
     [ ] create, 
     [ ] view (performance),
     [ ] edit,
