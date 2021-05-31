@@ -2,9 +2,16 @@
 
 <p>User show</p>
 
+<h2>Setlists</h2>
 <% @setlists.each do |s| %>
     <%= link_to s.title, setlist_path(s) %> | <%= s.id %>
     <br>
   <% end %>
+
+<h2>Songs</h2>
+<% @songs.each do |s| %>
+  <%= link_to s.title, song_path(s) %> | <%= s.id %>
+  <br>
+<% end %>
 
 <%= link_to "Logout", logout_path, method: :delete %>

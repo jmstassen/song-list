@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     redirect_if_not_logged_in
     @user = User.find_by_id(params[:id])
     @setlists = @user.setlists
+    @songs = @user.songs
     redirect_to '/' if !@user
   end
 
