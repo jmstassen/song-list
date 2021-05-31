@@ -5,4 +5,9 @@ class Setlist < ApplicationRecord
   
   scope :today_or_future, lambda { where("date >= ?", Date.today) }   
 
+  def user_id
+    sp = SetlistPermission.find(setlist_id = setlist.id, permission = 0)
+    sp.user_id
+  end
+
 end
