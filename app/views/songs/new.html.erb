@@ -1,16 +1,6 @@
 <h1>New Song</h1>
 
-<% if @song.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
-
-    <ul>
-      <% @song.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @song} %>
 
 <%= form_for([@setlist, @song]) do |f| %>
   <%= f.label :title %>
