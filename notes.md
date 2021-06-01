@@ -63,8 +63,8 @@ Basic User Stories
     [ ] edit,
     [X] index
 4. Setlist (validates title)
-    [ ] create, 
-    [ ] view (performance),
+    [X] create, 
+    [X] view (performance),
     [ ] edit,
-    [ ] index
-5. User view ([ ] User song index, [ ] User setlist index)
+    [X] index
+5. User view ([X] User song index, [X] User setlist index)
