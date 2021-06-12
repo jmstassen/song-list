@@ -15,6 +15,12 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.user_id = current_user.id
+    @song.lines.each do |l|
+      binding.pry
+      if l.lyrics == "" && l.chords == ""
+        l.destroy
+      end
+    end
     if @song.save
       if params[:setlist_id] && @setlist = Setlist.find_by_id(params[:setlist_id])
         song_number = @setlist.songs.count + 1
@@ -27,12 +33,15 @@ class SongsController < ApplicationController
   end
 
   def edit
+    @song = Song.find(params[:id])
+    @lines = @song.lines
   end
 
   def update
-  
+    @song = Song.find(params[:id])
+    @song.update(song_params)
+    redirect_to song_path(@song)
   end
-
     
   def index
     if params[:setlist_id] && @setlist = Setlist.find_by_id(params[:setlist_id])
@@ -60,6 +69,7 @@ class SongsController < ApplicationController
       :note,
       :link,
       lines_attributes: [
+        :id,
         :lyrics,
         :chords,
         :line_number
