@@ -16,7 +16,6 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     @song.user_id = current_user.id
     @song.lines.each do |l|
-      binding.pry
       if l.lyrics == "" && l.chords == ""
         l.destroy
       end
@@ -34,12 +33,22 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    n = @song.lines.count + 1
+    10.times do
+      @song.lines.build(:line_number => n)
+      n += 1
+    end
     @lines = @song.lines
   end
 
   def update
     @song = Song.find(params[:id])
     @song.update(song_params)
+    @song.lines.each do |l|
+      if l.lyrics == "" && l.chords == ""
+        l.destroy
+      end
+    end
     redirect_to song_path(@song)
   end
     
