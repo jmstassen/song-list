@@ -1,0 +1,37 @@
+<h1>Edit Song</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @song} %>
+
+<%= form_for(@song) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <%= f.label :songwriter %>
+  <%= f.text_field :songwriter %>
+  <br>
+  <br>
+  <%= f.label :tempo %>
+  <%= f.text_field :tempo %>
+  <br>
+  <br>
+  <%= f.label :key %> ♭
+  <%= f.text_field :key %>
+  <br>
+  <br>
+  <%= f.label :note %>
+  <%= f.text_area :note %>
+  <br>
+  <br>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  <br>
+  <br>
+  <%= f.fields_for :lines do |l| %>
+    <%= l.text_field :lyrics %> | <%= l.text_field :chords %> | <%= l.number_field :line_number %><br>
+  <% end %>
+  
+  <br>
+  <br>
+  <%= f.submit "Update" %>
+<% end %>
