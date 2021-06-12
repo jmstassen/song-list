@@ -1,3 +1,14 @@
+<h1> <%= @song.title %> </h1>
+<h2> <%= @song.songwriter %> </h2>
+<p> Tempo: <%= @song.tempo %> | Key: <%= @song.key %> </p>
+<p> <%= @song.note %> <p>
+<p> <%= @song.link %> <p>
+
+<% @song.lines.each do |l| %>
+    <%= l.lyrics %>
+    <%= l.chords %><br>
+<% end %>
+
 <%= form_for(@song) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -27,5 +38,5 @@
         <%= l.text_field :lyrics %> | <%= l.text_field :chords %> | <%= l.number_field :line_number %><br>
     <% end %>
 
-    <%= f.submit "Create" %>
+    <%= link_to edit_song_path %>
   <% end %>
