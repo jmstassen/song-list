@@ -25,6 +25,14 @@ class SongsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+  end
+
+  def update
+  
+  end
+
     
   def index
     if params[:setlist_id] && @setlist = Setlist.find_by_id(params[:setlist_id])
