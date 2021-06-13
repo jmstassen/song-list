@@ -3,6 +3,8 @@ class Setlist < ApplicationRecord
   has_many :setlist_permissions
   has_many :songs, through: :song_selections
   validates :title, presence: true
+
+  accepts_nested_attributes_for :song_selections
   
   scope :today_or_future, lambda { where("date >= ?", Date.today) }   
 
