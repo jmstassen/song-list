@@ -3,8 +3,8 @@
 <h2><%= @setlist.date %></h2>
 
 <% @setlist.songs.each do |s| %>
-    <%= link_to s.title, song_path(s) %> | <%= s.id %>
-    <br>
-  <% end %>
+  <%= link_to s.title, song_path(s) %> | <%= s.id %>
+  <br>
+<% end %>
 
-  <%= link_to "Create new song", new_setlist_song_path(@setlist.id) %>
+<%= link_to "Edit", edit_setlist_path(@setlist) %>
