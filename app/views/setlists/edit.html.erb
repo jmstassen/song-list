@@ -1,0 +1,23 @@
+<h1>Edit Setlist</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @setlist} %>
+
+<%= form_for(@setlist) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <br>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <br>
+  <br>
+  <%= f.submit "Update" %>
+<% end %>
+
+<%= link_to "Add existing songs", new_setlist_song_selection_path(@setlist) %>
+
+<%= link_to "Create new song", new_setlist_song_path(@setlist) %>
