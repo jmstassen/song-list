@@ -1,6 +1,7 @@
 class SetlistsController < ApplicationController
 
   def new
+    @songs = current_user.songs.all
     @setlist = Setlist.new
     n = 1
     10.times do
@@ -15,6 +16,7 @@ class SetlistsController < ApplicationController
       SetlistPermission.create(:user_id => current_user.id, :setlist_id => @setlist.id, :permission => 0)
       redirect_to setlist_path(@setlist)
     else
+      @songs = current_user.songs.all
       render :new
     end
   end
