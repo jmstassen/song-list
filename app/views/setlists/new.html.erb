@@ -17,7 +17,7 @@
   <br>
 
   <%= f.fields_for :song_selections do |ss| %>
-    <%= ss.collection_select(:song_id, current_user.songs.all, :id, :title, {:prompt => "Select Song"}) %> | <%= ss.number_field :song_number %><br>
+    <%= ss.collection_select(:song_id, @songs, :id, :title, {:prompt => "Select Song"}) %> | <%= ss.number_field :song_number %><br>
   <% end %>
 
   <%= f.submit "Create" %>
