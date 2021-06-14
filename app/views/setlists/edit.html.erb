@@ -1,5 +1,7 @@
 <h1>Edit Setlist</h1>
 
+<%= link_to "Create a new song to include in this setlist", new_setlist_song_path(@setlist) %>
+
 <%= render partial: "layouts/errors", locals: {object: @setlist} %>
 
 <%= form_for(@setlist) do |f| %>
@@ -22,5 +24,3 @@
   
     <%= f.submit "Update" %>
   <% end %>
-
-<%= link_to "Create new song", new_setlist_song_path(@setlist) %>
