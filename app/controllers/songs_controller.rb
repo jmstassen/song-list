@@ -15,11 +15,6 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.user_id = current_user.id
-    @song.lines.each do |l|
-      if l.lyrics == "" && l.chords == ""
-        l.destroy
-      end
-    end
     if @song.save
       if params[:setlist_id] && @setlist = Setlist.find_by_id(params[:setlist_id])
         song_number = @setlist.songs.count + 1
@@ -44,11 +39,6 @@ class SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
     @song.update(song_params)
-    @song.lines.each do |l|
-      if l.lyrics == "" && l.chords == ""
-        l.destroy
-      end
-    end
     redirect_to song_path(@song)
   end
     
