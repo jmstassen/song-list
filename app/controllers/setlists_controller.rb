@@ -10,8 +10,12 @@ class SetlistsController < ApplicationController
   end
       
   def create
-    binding.pry
     @setlist = Setlist.new(setlist_params)
+    @setlist.song_selections.each do |ss|
+      if ss.song_id == nil
+        ss.destroy
+      end
+    end
     if @setlist.save
       SetlistPermission.create(:user_id => current_user.id, :setlist_id => @setlist.id, :permission => 0)
       redirect_to setlist_path(@setlist)
@@ -22,6 +26,25 @@ class SetlistsController < ApplicationController
 
   def edit
     @setlist = Setlist.find(params[:id])
+    n = @setlist.song_selections.count + 1
+    5.times do
+      @setlist.song_selections.build(:song_number => n)
+      n += 1
+    end
+  end
+
+  def update
+    @setlist = Setlist.find(params[:id])
+    binding.pry
+    @setlist.update(setlist_params)
+    binding.pry
+    @setlist.song_selections.each do |ss|
+      if ss.song_id == nil
+        ss.destroy
+      end
+    end
+    binding.pry
+    redirect_to setlist_path(@setlist)
   end
 
   def index
@@ -43,7 +66,8 @@ class SetlistsController < ApplicationController
       song_selections_attributes: [
         :song_id, 
         :setlist_id, 
-        :song_number
+        :song_number,
+        :id
       ]
     )
   end
