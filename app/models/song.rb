@@ -4,7 +4,8 @@ class Song < ApplicationRecord
   belongs_to :user
   validates :title, presence: true
   
-  accepts_nested_attributes_for :lines
+  accepts_nested_attributes_for :lines,
+    reject_if: proc { |att| att['lyrics'].blank? && att['chords'].blank? }
 
   scope :alpha, -> { order(:title) }
 
