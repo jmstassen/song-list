@@ -23,6 +23,7 @@ class SetlistsController < ApplicationController
 
   def edit
     @setlist = Setlist.find(params[:id])
+    @songs = current_user.songs.all.alpha
     n = @setlist.song_selections.count + 1
     5.times do
       @setlist.song_selections.build(:song_number => n)
