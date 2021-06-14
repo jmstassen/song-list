@@ -13,8 +13,6 @@
   <br>
   <%= f.label :tempo %>
   <%= f.text_field :tempo %>
-  <br>
-  <br>
   <%= f.label :key %> ♭
   <%= f.text_field :key %>
   <br>
@@ -28,7 +26,9 @@
   <br>
   <br>
   <%= f.fields_for :lines do |l| %>
-    <%= l.text_field :lyrics %> | <%= l.text_field :chords %> | <%= l.number_field :line_number %><br>
+    <div class="line-wrapper">
+      <div class="lyrics-column"><%= l.text_field :lyrics %></div><div class="chords_column><%= l.text_field :chords %></div><%= l.hidden_field :line_number %>
+    </div>
   <% end %> 
   <br>
   <br>
