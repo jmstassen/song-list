@@ -5,8 +5,14 @@
 <p> <%= @song.link %> <p>
 
 <% @song.lines.each do |l| %>
-    <%= l.lyrics %>
-    <%= l.chords %><br>
+    <div class="line-wrapper">
+      <div class="lyrics-column">
+        <p><%= l.lyrics %></p>
+      </div>
+      <div class="chords-column">
+        <p><%= l.chords %><br></p>
+      </div>
+    </div>
 <% end %>
 
 <%= link_to "Edit", edit_song_path(@song) %>
