@@ -1,6 +1,6 @@
 class Song < ApplicationRecord
-  has_many :lines
-  has_many :song_selections
+  has_many :lines, dependent: :destroy
+  has_many :song_selections, dependent: :destroy
   belongs_to :user
   validates :title, presence: true
   

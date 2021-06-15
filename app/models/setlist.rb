@@ -1,6 +1,6 @@
 class Setlist < ApplicationRecord
   has_many :song_selections
-  has_many :setlist_permissions
+  has_many :setlist_permissions, dependent: :destroy
   has_many :songs, through: :song_selections
   validates :title, presence: true
 
