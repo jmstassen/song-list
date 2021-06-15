@@ -25,6 +25,10 @@
   <%= f.text_field :link %>
   <br>
   <br>
+  <div class="line-wrapper">
+    <div class="lyrics-column"> Lyrics </div>
+    <div class= "chords-column"> Chords </div>
+  </div>
   <%= f.fields_for :lines do |l| %>
     <div class="line-wrapper">
       <div class="lyrics-column"><%= l.text_field :lyrics %></div><div class="chords-column"><%= l.text_field :chords %></div><%= l.hidden_field :line_number %>
