@@ -38,10 +38,23 @@
     }
   
     .line-wrapper {
-      border: solid black 2px;
+      border: solid black 0px;
       display: grid;
       grid-template-columns: 4fr 2fr;
       column-gap: 5px;
+    }
+
+    .lyrics-column input {
+      height: 100%;
+      width: 100%;
+      font-size: 28px;
+
+    }
+
+    .chords-column input {
+      height: 100%;
+      width: 100%;
+      font-size: 28px;
     }
   
     .reference-textarea {
@@ -98,7 +111,7 @@
     }
   
     .lyrics-column, .chords-column {
-      border-right: 1px solid black;
+      border-right: 0px solid black;
     }
   
     .left-column h3 {

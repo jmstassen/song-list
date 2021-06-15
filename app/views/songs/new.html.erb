@@ -27,7 +27,7 @@
   <br>
   <%= f.fields_for :lines do |l| %>
     <div class="line-wrapper">
-      <div class="lyrics-column"><%= l.text_field :lyrics %></div><div class="chords_column><%= l.text_field :chords %></div><%= l.hidden_field :line_number %>
+      <div class="lyrics-column"><%= l.text_field :lyrics %></div><div class="chords-column"><%= l.text_field :chords %></div><%= l.hidden_field :line_number %>
     </div>
   <% end %> 
   <br>
