@@ -1,5 +1,13 @@
 Setlist App
 
+To Do
+1. Implement permissions
+2. Remove username?
+3. Delete Song
+4. Delete Setlist
+5. Delete User
+
+
 Setlist
   has_many :song_selections
   has_many :setlist_permissions
@@ -16,6 +24,7 @@ Song_Selections
 Song
   has_many :lines
   has_many :song_selections
+  has_many :setlists, through: :song_selections
   belongs_to :user
   title
   songwriter
