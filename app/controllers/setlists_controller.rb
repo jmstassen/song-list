@@ -23,11 +23,15 @@ class SetlistsController < ApplicationController
 
   def edit
     @setlist = Setlist.find(params[:id])
-    @songs = current_user.songs.all.alpha
-    n = @setlist.song_selections.count + 1
-    5.times do
-      @setlist.song_selections.build(:song_number => n)
-      n += 1
+    if !can_current_user?(:edit, @setlist)
+      redirect_to root_path
+    else
+      @songs = current_user.songs.all.alpha
+      n = @setlist.song_selections.count + 1
+      5.times do
+        @setlist.song_selections.build(:song_number => n)
+        n += 1
+      end
     end
   end
 
@@ -43,7 +47,9 @@ class SetlistsController < ApplicationController
 
   def show
     @setlist = Setlist.find_by_id(params[:id])
-    redirect_to '/' if !@setlist
+    if !can_current_user?(:view, @setlist)
+      redirect_to root_path
+    end
   end
 
   def destroy
