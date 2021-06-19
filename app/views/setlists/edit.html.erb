@@ -27,3 +27,4 @@
 
 
 <%= button_to "Delete Setlist", setlist_path(@setlist), method: :delete, data: { confirm: "Would you like to delete this setlist? This cannot be undone." } %>
+<%= link_to "Setlist permissions", setlist_setlist_permissions_path(@setlist) %>
