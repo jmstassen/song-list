@@ -2,10 +2,12 @@ Setlist App
 
 To Do
 1. Implement permissions
-2. Remove username?
-3. Delete Song
-4. Delete Setlist
-5. Delete User
+2. Slug username
+3. Remove username
+4. Delete Song
+5. Delete Setlist
+6. Delete User
+
 
 
 Setlist
