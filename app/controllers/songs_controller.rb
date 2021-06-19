@@ -60,6 +60,12 @@ class SongsController < ApplicationController
     redirect_to '/' if !@song
   end
 
+  def destroy
+    Song.find(params[:id]).destroy
+    flash[:message] = "Song deleted"
+    redirect_to user_path(current_user)
+  end
+
   private
     
   def song_params
