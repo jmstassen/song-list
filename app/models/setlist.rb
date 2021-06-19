@@ -30,6 +30,4 @@ class Setlist < ApplicationRecord
   end
 
   permissions_for :setlist_permissions, :edit, :view, :destroy
-
-  scope :can_view, lambda { where(self.viewable_by?(@current_user) == true) }
 end
