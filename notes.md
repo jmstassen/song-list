@@ -4,8 +4,8 @@ To Do
 1. Implement permissions
 2. Slug username
 3. Remove username
-4. Delete Song
-5. Delete Setlist
+4. Delete Song - done
+5. Delete Setlist - done
 6. Delete User
 7. Remove flash error from layout/application?
 
