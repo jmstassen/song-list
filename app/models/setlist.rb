@@ -14,4 +14,21 @@ class Setlist < ApplicationRecord
     sp.user_id
   end
 
+  def self.permissions_for(*args) 
+    association = args[0]
+    methods = args[1..-1]
+    methods.each do |method_name|
+      define_method "#{method_name}able_by?" do |user|
+        assoc = self.send(association).find_by(:user_id => user.id)
+        if !assoc
+          return false
+        else
+          assoc.send("#{method_name}able?")
+        end  
+      end
+    end
+  end
+
+  permissions_for :setlist_permissions, :edit, :view, :destroy
+
 end
