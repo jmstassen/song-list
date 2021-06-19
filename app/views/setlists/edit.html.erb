@@ -24,3 +24,6 @@
   
     <%= f.submit "Update" %>
   <% end %>
+
+
+<%= button_to "Delete Setlist", setlist_path(@setlist), method: :delete, data: { confirm: "Would you like to delete this setlist? This cannot be undone." } %>
