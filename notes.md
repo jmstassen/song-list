@@ -2,9 +2,13 @@ Setlist App
 
 To Do
 1. Implement setlist permissions
-    Create new setlist permission (editable =< 100, viewable =< 1000 , destroyable =< 10)
-    Delete setlist permission
+    Viewable by: user_email
+    Editable by: user_email
+    Destroyable by: user_email
+    Share (create setlist_permission)
+    Delete setlist_permission
     Check authoritzation in controllers
+    Public?
 2. Slug username
     Slug display name into username from google oauth login
 3. Edit User
