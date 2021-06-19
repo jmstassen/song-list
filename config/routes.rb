@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :setlists do
     resources :songs, only: [:new, :create, :index]
     resources :song_selections, only: [:new, :create, :index]
+    resources :setlist_permissions, only: [:index]
   end
 
   resources :songs
