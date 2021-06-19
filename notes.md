@@ -1,14 +1,15 @@
 Setlist App
 
 To Do
-1. Implement permissions
+1. Implement setlist permissions
+    Create new setlist permission (editable =< 100, viewable =< 1000 , destroyable =< 10)
+    Delete setlist permission
+    Check authoritzation in controllers
 2. Slug username
-3. Slug display name into username from google oauth login
-4. Delete Song - done
-5. Delete Setlist - done
-6. Delete User
-7. Edit User
-8. Move flash error into wrapper - done
+    Slug display name into username from google oauth login
+3. Edit User
+    Delete User
+
 
 
 
