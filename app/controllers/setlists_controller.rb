@@ -46,6 +46,12 @@ class SetlistsController < ApplicationController
     redirect_to '/' if !@setlist
   end
 
+  def destroy
+    Setlist.find(params[:id]).destroy
+    flash[:message] = "Setlist deleted."
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def setlist_params
