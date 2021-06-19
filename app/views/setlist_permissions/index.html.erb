@@ -2,6 +2,6 @@
 <p> User ID | Setlist ID | Permission </p>
 
   <% @setlist_permissions.each do |s| %>
-    <%= s.user_id %> | <%= s.setlist_id %> | <%= s.permission %>
+    <%= s.user_email %> | <%= s.setlist_id %> | <%= s.permission %>
     <br>
   <% end %>
