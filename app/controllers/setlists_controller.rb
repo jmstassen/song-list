@@ -42,7 +42,7 @@ class SetlistsController < ApplicationController
   end
 
   def index
-      @setlists = Setlist.all
+    @setlists = Setlist.all
   end
 
   def show
