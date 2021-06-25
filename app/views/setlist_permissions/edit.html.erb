@@ -1,0 +1,6 @@
+<%= form_for(@setlist_permission) do |f| %>
+  <p><%= @user %>
+    <br>
+    <br>
+      <%= collection_select(@setlist_permission.permission, @permissions, :id, permission.user_email, {:prompt => "Select Song"}) %><br>
+<% end %>
