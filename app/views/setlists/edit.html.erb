@@ -5,25 +5,25 @@
 <%= render partial: "layouts/errors", locals: {object: @setlist} %>
 
 <%= form_for(@setlist) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br>
-    <br>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <br>
-    <br>
-    <%= f.label :date %>
-    <%= f.date_field :date %>
-    <br>
-    <br>
-  
-    <%= f.fields_for :song_selections do |ss| %>
-      <%= ss.collection_select(:song_id, @songs, :id, :title, {:prompt => "Select Song"}) %> | <%= ss.number_field :song_number %><br>
-    <% end %>
-  
-    <%= f.submit "Update" %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <br>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <br>
+  <br>
+
+  <%= f.fields_for :song_selections do |ss| %>
+    <%= ss.collection_select(:song_id, @songs, :id, :title, {:prompt => "Select Song"}) %><%= ss.hidden_field :song_number %><br>
   <% end %>
+  <br>
+  <%= f.submit "Update" %>
+<% end %>
 
 
 <%= button_to "Delete Setlist", setlist_path(@setlist), method: :delete, data: { confirm: "Would you like to delete this setlist? This cannot be undone." } %>
