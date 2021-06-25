@@ -2,7 +2,7 @@
 
 <%= render partial: "layouts/errors", locals: {object: @song} %>
 
-<%= form_for(@song) do |f| %>
+<%= form_for([@setlist, @song]) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
@@ -13,8 +13,6 @@
   <br>
   <%= f.label :tempo %>
   <%= f.text_field :tempo %>
-  <br>
-  <br>
   <%= f.label :key %> ♭
   <%= f.text_field :key %>
   <br>
@@ -27,10 +25,15 @@
   <%= f.text_field :link %>
   <br>
   <br>
+  <div class="line-wrapper">
+    <div class="lyrics-column"> Lyrics </div>
+    <div class= "chords-column"> Chords </div>
+  </div>
   <%= f.fields_for :lines do |l| %>
-    <%= l.text_field :lyrics %> | <%= l.text_field :chords %> | <%= l.number_field :line_number %><br>
-  <% end %>
-  
+    <div class="line-wrapper">
+      <div class="lyrics-column"><%= l.text_field :lyrics %></div><div class="chords-column"><%= l.text_field :chords %></div><%= l.hidden_field :line_number %>
+    </div>
+  <% end %> 
   <br>
   <br>
   <%= f.submit "Update" %>
