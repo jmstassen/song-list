@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :songs, only: [:new, :create, :index]
+    resources :setlists, only: [:index]
   end
   
   resources :setlists do
