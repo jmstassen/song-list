@@ -1,4 +1,6 @@
 <h1>Welcome <%= @user.display_name %></h1>
+<%= link_to "Settings", edit_user_path(@user) %>
+<br>
 <br>
 <h2>Your Setlists</h2>
 <% @setlists.each do |s| %>
