@@ -22,4 +22,9 @@ class SetlistPermission < ApplicationRecord
     self.user.email
   end
 
+  def permission_word
+    PERMISSIONS.invert[self.permission]
+  end
+    
+
 end
