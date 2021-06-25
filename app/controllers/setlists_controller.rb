@@ -42,7 +42,11 @@ class SetlistsController < ApplicationController
   end
 
   def index
-    @setlists = current_user.setlists.all
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @setlists = current_user.setlists.all
+    else
+      @setlists = Setlist.all
+    end
   end
 
   def show
