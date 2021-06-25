@@ -2,6 +2,8 @@
 <p> User ID | Setlist ID | Permission </p>
 
   <% @setlist_permissions.each do |s| %>
-    <%= s.user_email %> | <%= s.setlist_id %> | <%= s.permission %>
+    <%= s.user_email %> | <%= s.permission_word %> | <%= link_to "Edit this Permission", edit_setlist_permission_path(s) %>
     <br>
   <% end %>
+
+  <%= link_to "Add new", new_setlist_setlist_permission_path(@setlist) %>
