@@ -9,5 +9,6 @@ class Song < ApplicationRecord
     reject_if: proc { |att| att['lyrics'].blank? && att['chords'].blank? }
 
   scope :alpha, -> { order(:title) }
+  scope :is_public, -> { where("public == true") }
 
 end
