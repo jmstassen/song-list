@@ -51,7 +51,7 @@ class SongsController < ApplicationController
     elsif params[:user_id] && @user = User.find_by_id(params[:user_id])
       @songs = @user.songs
     else
-      @songs = Song.all
+      @songs = Song.all.is_public.order(title: :asc)
     end
   end
 
