@@ -7,7 +7,7 @@ class Setlist < ApplicationRecord
   accepts_nested_attributes_for :song_selections,
     reject_if: proc { |att| att['song_id'].blank? }
 
-  scope :today_or_future, lambda { where("date >= ?", Date.today) }   
+  scope :alpha, -> { order(:title) }
 
   def user_id
     sp = SetlistPermission.find(setlist_id = setlist.id, permission = 0)
