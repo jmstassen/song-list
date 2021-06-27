@@ -76,6 +76,7 @@ class SongsController < ApplicationController
       :key,
       :note,
       :link,
+      :public,
       lines_attributes: [
         :id,
         :lyrics,
