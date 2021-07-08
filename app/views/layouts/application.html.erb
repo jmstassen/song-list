@@ -11,31 +11,32 @@
   </head>
 
   <body>
-
-    <div class="nav">
-      <% if logged_in? %>
-        <%= link_to "Create new setlist", new_setlist_path %> | 
-        <%= link_to "Create new song", new_song_path %> |
-        <%= link_to "My songs", user_songs_path(current_user) %> |
-        <%= link_to "My setlists", user_setlists_path(current_user) %> |
-        <%= link_to "All public songs", songs_path %> |
-        <%= link_to "Settings", edit_user_path(current_user) %> |
-        <%= link_to "Log out", logout_path, method: :delete %>
-      <% else %>     
-        <%= link_to "Sign up", signup_path %> |
-        <%= link_to "Log in", login_path %> |
-        <%= link_to "Log in with Google", '/auth/google_oauth2', method: :post %>
-      <% end %>
-    </div>
-
-
     <div class="wrapper">
-    <div>
-    <% if flash[:message] %>
-      <%= flash[:message] %>
-      <br>
-    <% end %>
-  </div>
+      <div class="nav">
+        <% if logged_in? %>
+        
+            <%= link_to "Create new setlist", new_setlist_path %> | 
+            <%= link_to "Create new song", new_song_path %> | 
+            <%= link_to "My songs", user_songs_path(current_user) %> | 
+            <%= link_to "My setlists", user_setlists_path(current_user) %> | 
+            <%= link_to "All public songs", songs_path %> | 
+            <%= link_to "Settings", edit_user_path(current_user) %> | 
+            <%= link_to "Log out", logout_path, method: :delete %> 
+            <br><br>
+        <% else %>     
+            
+            <%= link_to "Sign up", signup_path %> | 
+            <%= link_to "Log in", login_path %> | 
+            <%= link_to "Log in with Google", '/auth/google_oauth2', method: :post %> 
+            <br><br>
+        <% end %>
+      </div>
+      <div>
+        <% if flash[:message] %>
+          <%= flash[:message] %>
+          <br>
+        <% end %>
+      </div>
       <%= yield %>
       <footer class="branding">
         <small>&copy; 2021 <strong>Song List</strong></small>
