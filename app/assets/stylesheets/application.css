@@ -142,7 +142,9 @@
       display: grid;
       grid-template-rows: 1fr auto;
     }*/
-    
+    .nav {
+      border-bottom: 2px solid #ccc;
+    }
     .wrapper {
       background: #fff;
       -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
