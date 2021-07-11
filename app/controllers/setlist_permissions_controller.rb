@@ -10,7 +10,7 @@ class SetlistPermissionsController < ApplicationController
     if params[:setlist_id] && @setlist = Setlist.find_by_id(params[:setlist_id])
       @setlist_permissions = @setlist.setlist_permissions
     else
-      @setlist_permissions = SetlistPermissions.all
+      @setlist_permissions = SetlistPermission.all
     end
   end
 
@@ -18,6 +18,16 @@ class SetlistPermissionsController < ApplicationController
     @setlist_permission = SetlistPermission.find(params[:id])
     @user = @setlist_permission.user_email
     @permissions = PERMISSIONS
+  end
+
+  def update
+    @setlist_permission = SetlistPermission.find(params[:id])
+    @setlist = Setlist.find_by(:id => params[:setlist_permission][:setlist_id])
+    user = User.find_by(:email => params[:setlist_permission][:user_email])
+    @setlist_permission.user_id = user.id
+    @setlist_permission.permission = params[:setlist_permission][:permission]
+    @setlist_permission.save
+    redirect_to setlist_setlist_permissions_path(@setlist)
   end
 
   def new
