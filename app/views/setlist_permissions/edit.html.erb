@@ -1,8 +1,9 @@
-<%= form_tag setlist_permissions_path do %>
+<%= form_for([@setlist, @setlist_permission]) do |f| %>
     <label>User Email</label><br>
-    <%= text_field_tag :user_email %><br>
+    <%= f.text_field :user_email %><br>
     <label>Permission Level</label><br>
-    <%= select_tag(:permission, options_for_select([['view', 100], ['edit', 10], ['destroy', 0]])) %>
+    <%= f.select :permission, ([['view', 100], ['edit', 10], ['destroy', 0]]) %>
+    <%= f.hidden_field :setlist_id %>
     <br>
     <br>
     <%= submit_tag "Edit" %>
