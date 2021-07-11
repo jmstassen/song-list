@@ -49,6 +49,14 @@ class SetlistPermissionsController < ApplicationController
     end
   end
 
+  def destroy
+    @setlist_permission = SetlistPermission.find(params[:id])
+    @setlist_id = @setlist_permission.setlist_id
+    @setlist_permission.destroy
+    flash[:message] = "Setlist permission deleted."
+    redirect_to setlist_setlist_permissions_path(@setlist_id)
+  end
+
   private
   def setlist_permission_params
     params.require(:setlist_permission).permit(
