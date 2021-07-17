@@ -1,30 +1,9 @@
+<br>
 <h1>Edit Setlist</h1>
-
-<%= link_to "Create a new song to include in this setlist", new_setlist_song_path(@setlist) %>
-
+<br>
+<%= link_to "Setlist permissions", setlist_setlist_permissions_path(@setlist) %> | <%= link_to "Create a new song to include in this setlist", new_setlist_song_path(@setlist) %>
+<br>
 <%= render partial: "layouts/errors", locals: {object: @setlist} %>
-
-<%= form_for(@setlist) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <br>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <br>
-  <br>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
-  <br>
-  <br>
-
-  <%= f.fields_for :song_selections do |ss| %>
-    <%= ss.collection_select(:song_id, @songs, :id, :title, {:prompt => "Select Song"}) %><%= ss.hidden_field :song_number %><br>
-  <% end %>
-  <br>
-  <%= f.submit "Update" %>
-<% end %>
-
-
-<%= button_to "Delete Setlist", setlist_path(@setlist), method: :delete, data: { confirm: "Would you like to delete this setlist? This cannot be undone." } %>
-<%= link_to "Setlist permissions", setlist_setlist_permissions_path(@setlist) %>
+<br>
+<%= render 'form' %>
+<%= button_to "Delete Setlist", setlist_path(@setlist), method: :delete, data: { confirm: "Would you like to delete this setlist? This cannot be undone." }, class:"delete-button" %>
