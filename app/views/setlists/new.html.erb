@@ -1,24 +1,5 @@
+<br>
 <h1>New Setlist</h1>
-
+<br>
 <%= render partial: "layouts/errors", locals: {object: @setlist} %>
-
-<%= form_for(@setlist) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <br>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <br>
-  <br>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
-  <br>
-  <br>
-
-  <%= f.fields_for :song_selections do |ss| %>
-    <%= ss.collection_select(:song_id, @songs, :id, :title, {:prompt => "Select Song"}) %><%= ss.hidden_field :song_number %><br>
-  <% end %>
-  <br>
-  <%= f.submit "Create" %>
-<% end %>
+<%= render 'form' %>
