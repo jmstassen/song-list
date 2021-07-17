@@ -1,6 +1,9 @@
+<br>
+<h1>Edit Setlist Permission</h1>
+<br>
 <%= form_for([@setlist, @setlist_permission]) do |f| %>
     <label>User Email</label><br>
-    <%= f.text_field :user_email %><br>
+    <%= f.text_field :user_email %><br><br>
     <label>Permission Level</label><br>
     <%= f.select :permission, ([['view', 100], ['edit', 10], ['destroy', 0]]) %>
     <%= f.hidden_field :setlist_id %>
@@ -9,4 +12,4 @@
     <%= submit_tag "Edit" %>
     <% end %>
 
-    <%= button_to "Delete Setlist Permission", setlist_permission_path(@setlist_permission), method: :delete, data: { confirm: "Would you like to delete this serlist permission? This cannot be undone." } %>
+    <%= button_to "Delete Setlist Permission", setlist_permission_path(@setlist_permission), method: :delete, data: { confirm: "Would you like to delete this serlist permission? This cannot be undone." }, class:"delete-button" %>
