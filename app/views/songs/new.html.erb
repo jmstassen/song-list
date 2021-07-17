@@ -1,44 +1,6 @@
+<br>
 <h1>New Song</h1>
-
+<br>
 <%= render partial: "layouts/errors", locals: {object: @song} %>
 
-<%= form_for([@setlist, @song]) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <br>
-  <%= f.label :songwriter %>
-  <%= f.text_field :songwriter %>
-  <br>
-  <br>
-  <%= f.label :public %>
-  <%= f.check_box :public %>
-  <br>
-  <br>
-  <%= f.label :tempo %>
-  <%= f.text_field :tempo %>
-  <%= f.label :key %> ♭
-  <%= f.text_field :key %>
-  <br>
-  <br>
-  <%= f.label :note %>
-  <%= f.text_area :note %>
-  <br>
-  <br>
-  <%= f.label :link %>
-  <%= f.text_field :link %>
-  <br>
-  <br>
-  <div class="line-wrapper">
-    <div class="lyrics-column"> Lyrics </div>
-    <div class= "chords-column"> Chords </div>
-  </div>
-  <%= f.fields_for :lines do |l| %>
-    <div class="line-wrapper">
-      <div class="lyrics-column"><%= l.text_field :lyrics %></div><div class="chords-column"><%= l.text_field :chords %></div><%= l.hidden_field :line_number %>
-    </div>
-  <% end %> 
-  <br>
-  <br>
-  <%= f.submit "Create" %>
-<% end %>
+<%= render 'form' %>
