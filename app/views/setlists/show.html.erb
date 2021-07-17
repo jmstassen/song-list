@@ -1,10 +1,12 @@
+<br>
 <h1><%= @setlist.title %></h1>
+<br>
 <h2><%= @setlist.location %></h2>
 <h2><%= @setlist.date %></h2>
-
+<br>
 <% @setlist.song_selections.each do |ss| %>
   <%= link_to ss.song_title, song_path(ss.song_id) %> | <%= ss.id %>
   <br>
 <% end %>
-
-<%= link_to "Edit", edit_setlist_path(@setlist) %>
+<br>
+<%= link_to "Edit Setlist", edit_setlist_path(@setlist) %>

@@ -1,9 +1,10 @@
-<h1> <%= @song.title %> </h1>
+<br><h1> <%= @song.title %> </h1>
 <h2> <%= @song.songwriter %> </h2>
+<br>
 <p> Tempo: <%= @song.tempo %> | Key: <%= @song.key %> </p>
 <p> <%= @song.note %> <p>
 <p> <%= @song.link %> <p>
-
+<br>
 <% @song.lines.each do |l| %>
     <div class="line-wrapper">
       <div class="lyrics-column">
@@ -14,5 +15,5 @@
       </div>
     </div>
 <% end %>
-
+<br>
 <%= link_to "Edit", edit_song_path(@song) %>
