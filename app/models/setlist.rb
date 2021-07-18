@@ -7,8 +7,6 @@ class Setlist < ApplicationRecord
   accepts_nested_attributes_for :song_selections,
     reject_if: proc { |att| att['song_id'].blank? }
 
-  scope :alpha, -> { order(:title) }
-
   def user_id
     sp = SetlistPermission.find_by(setlist_id: self.id, permission: 0)
     sp.user_id
