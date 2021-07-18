@@ -1,24 +1,11 @@
-# README
+This is a platform to save and share lyrics and chord progressions for songs. To start, create a song, providing information about the song as well as lyrics and accompanying chords. Songs can be added to Setlists, which can be shared with other users. Songs can be shared pubicly or directly with other users.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To launch, run rails db:migrate then rails s.
 
-Things you may want to cover:
+Copyright <2021> <John M. Stassen>
 
-* Ruby version
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-* System dependencies
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
