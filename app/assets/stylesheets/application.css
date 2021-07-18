@@ -115,6 +115,14 @@
       background-color: red;
       float: right
     }
+
+    .delete-button-hide {
+      display: none
+    }
+
+    .hide {
+      display: none
+    }
   
     input, select, textarea {
       font-size: 12;
