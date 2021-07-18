@@ -12,4 +12,11 @@ module SongsHelper
     end
   end
 
+  def hide_song_edit(song)
+    if song.user.id == current_user.id
+      return ""
+    else
+      return "hide"
+    end
+  end
 end
