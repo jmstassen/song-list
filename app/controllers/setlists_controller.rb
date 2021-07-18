@@ -26,7 +26,7 @@ class SetlistsController < ApplicationController
     if !can_current_user?(:edit, @setlist)
       redirect_to root_path
     else
-      @songs = current_user.songs.all.alpha
+      @songs = ( @setlist.songs + current_user.songs.all ).uniq
       n = @setlist.song_selections.count + 1
       5.times do
         @setlist.song_selections.build(:song_number => n)
@@ -57,7 +57,8 @@ class SetlistsController < ApplicationController
   end
 
   def destroy
-    Setlist.find(params[:id]).destroy
+    setlist = Setlist.find(params[:id])
+    setlist.destroy
     flash[:message] = "Setlist deleted."
     redirect_to user_path(current_user)
   end
@@ -68,7 +69,8 @@ class SetlistsController < ApplicationController
     params.require(:setlist).permit(
       :title, 
       :location, 
-      :date, 
+      :date,
+      :id, 
       song_selections_attributes: [
         :song_id, 
         :setlist_id, 
