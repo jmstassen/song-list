@@ -1,5 +1,5 @@
 class Setlist < ApplicationRecord
-  has_many :song_selections
+  has_many :song_selections, dependent: :destroy
   has_many :setlist_permissions, dependent: :destroy
   has_many :songs, through: :song_selections
   validates :title, presence: true
@@ -10,7 +10,7 @@ class Setlist < ApplicationRecord
   scope :alpha, -> { order(:title) }
 
   def user_id
-    sp = SetlistPermission.find(setlist_id = setlist.id, permission = 0)
+    sp = SetlistPermission.find_by(setlist_id: self.id, permission: 0)
     sp.user_id
   end
 
