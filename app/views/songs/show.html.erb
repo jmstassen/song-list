@@ -16,4 +16,4 @@
     </div>
 <% end %>
 <br>
-<%= link_to "Edit", edit_song_path(@song) %>
+<%= link_to "Edit", edit_song_path(@song), class:"#{hide_song_edit @song}"  %>
