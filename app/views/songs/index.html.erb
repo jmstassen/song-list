@@ -1,6 +1,6 @@
 <br><h1>Songs</h1>
 <br>
   <% @songs.each do |s| %>
-    <%= link_to s.title, song_path(s) %> | <%= s.id %>
+    <%= link_to s.title, song_path(s) %> | <%= s.songwriter %>
     <br>
   <% end %>
