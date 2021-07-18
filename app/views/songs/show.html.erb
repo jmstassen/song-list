@@ -1,7 +1,7 @@
 <br><h1> <%= @song.title %> </h1>
 <h2> <%= @song.songwriter %> </h2>
 <br>
-<p> Tempo: <%= @song.tempo %> | Key: <%= @song.key %> </p>
+<p> <%= tempo_and_key @song %> </p>
 <p> <%= @song.note %> <p>
 <p> <%= @song.link %> <p>
 <br>
