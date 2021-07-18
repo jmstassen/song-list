@@ -1,9 +1,9 @@
+<br>
 <h1>Sign up</h1>
 
 <%= render partial: "layouts/errors", locals: {object: @user} %>
 
 <%= form_for(@user, url:'/signup') do |f| %>
-  <br>
   <br>
   <%= f.label :email %>
   <%= f.email_field :email %>
