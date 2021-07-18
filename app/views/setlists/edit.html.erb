@@ -6,4 +6,4 @@
 <%= render partial: "layouts/errors", locals: {object: @setlist} %>
 <br>
 <%= render 'form' %>
-<%= button_to "Delete Setlist", setlist_path(@setlist), method: :delete, data: { confirm: "Would you like to delete this setlist? This cannot be undone." }, class:"delete-button" %>
+<%= button_to "Delete Setlist", setlist_path(@setlist), method: :delete, data: { confirm: "Would you like to delete this setlist? This cannot be undone." }, class:"delete-button#{show_hide_delete @setlist}" %>
